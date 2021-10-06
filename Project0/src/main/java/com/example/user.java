@@ -52,8 +52,8 @@ public class user {
 	
 	@Override
 	public String toString() {
-		return "user [username=" + username +  ", type=" + type + ", firstname=" + firstname
-				+ ", lastname=" + lastname + "]";
+		return "user \t[username=" + username +  ", \ttype=" + type + ", \tfirstname=" + firstname
+				+ ", \tlastname=" + lastname + "]";
 	}
 
 	

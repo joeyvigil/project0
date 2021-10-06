@@ -20,7 +20,7 @@ public class DAO {
 	private static final String username =  "project0user";
 	private static final String password = "p4ssw0rd";
 	
-	public boolean isactive(int aid) { //return user type, ie customer, employee or admin
+	public boolean isactive(int aid) { //returns if account is active
 		List<bank> allbank=getAllbank();
 		for (bank banks : allbank) {
 			if (banks.getId()==aid) {
@@ -40,15 +40,20 @@ public class DAO {
 		}
 		return answer;
 	}
-	
+	//fix
 	public boolean ownershipcheck(String uname, int aid) { //checks if user owns bank account
 		List<bank> allbank=getAllbank();
 		boolean answer=false;
 		for (bank banks : allbank) {
 			if (banks.getId()==aid) {
-				if (banks.getOwner1().equals(uname)||banks.getOwner2().equals(uname)) {
-					answer=true;
-				}
+					if(banks.getOwner2()!=null){
+						if (banks.getOwner2().equals(uname)) {
+							answer=true;
+						}
+					}
+					if (banks.getOwner1().equals(uname)) {
+						answer=true;
+					}
 			}
 		}
 		return answer;

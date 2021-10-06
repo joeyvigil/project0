@@ -71,8 +71,8 @@ public class bank {
 
 	@Override
 	public String toString() {
-		return "bank [id=" + id + ", owner1=" + owner1 + ", owner2=" + owner2 + ", type=" + type + ", funds=" + funds
-				+ ", active=" + active + "]";
+		return "bank \t[id=" + id + ", \towner1=" + owner1 + ", \towner2=" + owner2 + ", \ttype=" + type + ", \tfunds=" + funds
+				+ ", \tactive=" + active + "]";
 	}
 	
 	

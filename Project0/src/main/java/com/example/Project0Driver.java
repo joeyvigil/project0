@@ -13,7 +13,7 @@ public class Project0Driver {
 		@SuppressWarnings("resource")
 		Scanner scan=new Scanner(System.in);
 		
-		;
+		
 		while (true) {
 			System.out.println("-------------------------------------------------------------------");
 			System.out.println("Welcome to Woori Bank!");
@@ -118,7 +118,7 @@ public class Project0Driver {
 			System.out.println("How much would you like to deposit?");
 			money=scan.nextDouble();
 			if (dao1.isactive(id)) {
-				if (dao1.ownershipcheck(un, id)) {
+				if (dao1.ownershipcheck(un, id)&&money>=0) {
 					dao1.deposit(id, money);
 				} else {
 						System.out.println("Error: You do not own this account");
@@ -136,7 +136,7 @@ public class Project0Driver {
 			System.out.println("How much would you like to transfer?");
 			money=scan.nextDouble();
 			if (dao1.isactive(idw)) {
-				if (dao1.ownershipcheck(un, idw)) {
+				if (dao1.ownershipcheck(un, idw)&&money>=0) {
 					if (dao1.canwithdraw(idw, money)) {
 						dao1.withdraw(idw, money);
 						dao1.deposit(idd, money);
@@ -309,7 +309,7 @@ public class Project0Driver {
 			int id=scan.nextInt();
 			System.out.println("How much would you like to withdraw?");
 			double money=scan.nextDouble();
-				if (dao1.canwithdraw(id, money)) {
+				if (dao1.canwithdraw(id, money)&&money>=0) {
 					dao1.withdraw(id, money);
 				} else {
 					System.out.println("Error: insufficient funds or account doesnt exist");
@@ -321,7 +321,7 @@ public class Project0Driver {
 			id=scan.nextInt();
 			System.out.println("How much would you like to deposit?");
 			money=scan.nextDouble();
-			if (dao1.bankexits(id)) {
+			if (dao1.bankexits(id)&&money>=0) {
 				dao1.deposit(id, money);
 			} else {
 				System.out.println("bank account doesnt exist");
@@ -335,7 +335,7 @@ public class Project0Driver {
 			int idd=scan.nextInt();
 			System.out.println("How much would you like to transfer?");
 			money=scan.nextDouble();
-				if (dao1.canwithdraw(idw, money)) {
+				if (dao1.canwithdraw(idw, money)&&money>=0) {
 					dao1.withdraw(idw, money);
 					dao1.deposit(idd, money);
 				} else {
